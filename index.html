@@ -41,14 +41,14 @@
             document.querySelector("#guessSoFar").innerHTML = guessSoFar;
         }
         
-        //CALL THE FUNCTION IN ORDER FOR IT TO WORK.!!!!!
+        //CALL THE FUNCTION IN ORDER FOR IT TO WORK!!!!!
         updateDisplay();
 
         //  CREATE A FUNCTION TO GENERATE A RANDOM LETTER FOR COMPUTER
         function computerRandomLetter() {
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         }
-        
+
         //  CREATE A FUNCTION TO RESET SCORE
         function resetScores() {
             guessLeft = 9;
@@ -64,12 +64,25 @@
             console.log(userGuess);
         }
 
-        //CREATE THE CONDITIONAL
-        if (userGuess == computerGuess) {
-            wins++;
-            } else {
+        // CREATE A FUNCTION FOR GUESS LEFT.  
+        function remainingGuess () {
+            guessLeft--;
+        } 
+
+        if (guessLeft==0) {
             losses++;
+        }
+
+        //CREATE THE CONDITIONAL
+        if (userGuess === computerGuess) {
+            wins++;
+            } else if (userGuess !== computerGuess) {
+            guessLeft--;
             }
+        if (guessLeft===0) {
+            losses++;
+        }
+
             // END OF CONDITIONAL
 
 
