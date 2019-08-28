@@ -55,7 +55,6 @@
             guessSoFar =[];
         }
 
-        resetScores();
 
         // CREATE AN ONKEY UP EVENT FUNCTION TO GRAB USERGUESS
         document.onkeyup = function(event) {
@@ -64,6 +63,16 @@
             userGuess = event.key;
             console.log(userGuess);
         }
+
+        //CREATE THE CONDITIONAL
+        if (userGuess == computerGuess) {
+            wins++;
+            } else {
+            losses++;
+            }
+            // END OF CONDITIONAL
+
+
         </script>
         <!-- END OF SCRIPT -->
 
