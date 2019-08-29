@@ -5,7 +5,7 @@
         var wins=0;
         var losses=0;
         var guessLeft=9;
-        var guessSoFar = 0;
+        var guessSoFar = [];
         var userGuess;
         var computerGuess;
         var computerChoices = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -35,7 +35,7 @@
         //  CREATE A FUNCTION TO RESET SCORE
         function resetScores() {
             guessLeft = 9;
-            guessSoFar =0;
+            guessSoFar =[];
         }
 
 
@@ -51,24 +51,27 @@
             console.log("You Won!!!!");
             wins++;
             resetScores();
+            computerRandomLetter();
             updateDisplay();
             
             } else if (userGuess !== computerGuess) {
             console.log("You lost!!!!");
-            guessSoFar++;
             guessLeft--;
+            guessSoFar.push(userGuess);
             updateDisplay();
 
             }
-            else {
-            losses++;
-            resetScores();
-            updateDisplay();
-            }
+            // else {
+            // losses++;
+            // resetScores();
+            // updateDisplay();
+            // }
 
-            if (guessLeft < 1){
+            if (guessLeft === 0){
                 console.log("Restart Game!");
                 losses++;
+                // guessLeft = 9;
+                // guessSoFar = []
                 resetScores();
                 updateDisplay();
             }

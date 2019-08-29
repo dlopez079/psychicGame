@@ -1,0 +1,16 @@
+body {
+    background-image: url("../images/psychic-mind.jpg");
+}
+
+#container {
+    margin: 100px auto;
+    width: 100%;
+    max-width: 960px;
+    font-family: 'Gayathri', sans-serif;
+    text-align: center;
+    font-size: x-large;
+    color: white;
+    font-weight: bolder;
+    font-display: n
+    
+}
