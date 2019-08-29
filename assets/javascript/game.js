@@ -1,11 +1,11 @@
-<!-- CREATE THE SCRIPT TO THE HTML DOCUMENT -->
-        <script>
+// <!-- CREATE THE SCRIPT TO THE HTML DOCUMENT -->
+
         
         //  CREATE VARIALBE TO STORE MY VALUES: WINS, LOSSES, USERGUESS, COMPUTER GUESS, COMPUTER CHOICES.
         var wins=0;
         var losses=0;
         var guessLeft=9;
-        var guessSoFar = [];
+        var guessSoFar = 0;
         var userGuess;
         var computerGuess;
         var computerChoices = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -27,12 +27,15 @@
         //  CREATE A FUNCTION TO GENERATE A RANDOM LETTER FOR COMPUTER
         function computerRandomLetter() {
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            console.log(computerGuess);
         }
+
+        computerRandomLetter();
 
         //  CREATE A FUNCTION TO RESET SCORE
         function resetScores() {
             guessLeft = 9;
-            guessSoFar =[];
+            guessSoFar =0;
         }
 
 
@@ -42,29 +45,41 @@
             // Determines which key was pressed.
             userGuess = event.key;
             console.log(userGuess);
+
+            //CREATE THE CONDITIONAL
+            if (userGuess === computerGuess) {
+            console.log("You Won!!!!");
+            wins++;
+            resetScores();
+            updateDisplay();
+            
+            } else if (userGuess !== computerGuess) {
+            console.log("You lost!!!!");
+            guessSoFar++;
+            guessLeft--;
+            updateDisplay();
+
+            }
+            else {
+            losses++;
+            resetScores();
+            updateDisplay();
+            }
+
+            if (guessLeft < 1){
+                console.log("Restart Game!");
+                losses++;
+                resetScores();
+                updateDisplay();
+            }
         }
 
         // CREATE A FUNCTION FOR GUESS LEFT.  
-        function remainingGuess () {
-            guessLeft--;
-        } 
+        // function remainingGuess () {
+        //     guessLeft--;
+        // } 
 
-        if (guessLeft==0) {
-            losses++;
-        }
-
-        //CREATE THE CONDITIONAL
-        if (userGuess === computerGuess) {
-            wins++;
-            } else if (userGuess !== computerGuess) {
-            guessLeft--;
-            }
-        if (guessLeft===0) {
-            losses++;
-        }
-
+    
+    
+        
             // END OF CONDITIONAL
-
-
-        </script>
-        <!-- END OF SCRIPT -->
