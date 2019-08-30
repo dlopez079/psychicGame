@@ -6,11 +6,11 @@ body {
     margin: 100px auto;
     width: 100%;
     max-width: 960px;
-    font-family: 'Gayathri', sans-serif;
+    font-family: 'Abril Fatface', cursive;
     text-align: center;
-    font-size: x-large;
-    color: white;
+    font-size: 40px;
+    color: aqua;
     font-weight: bolder;
-    font-display: n
+    text-shadow: 5px 5px darkblue;
     
 }
